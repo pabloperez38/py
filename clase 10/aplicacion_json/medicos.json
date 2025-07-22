@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pablo",
+        "apellido": "P\u00e9rez",
+        "especialidad": "Kinesiolog\u00eda"
+    },
+    {
+        "id": 2,
+        "nombre": "Sergio",
+        "apellido": "Ram\u00edrez",
+        "especialidad": "Oftalmolog\u00eda"
+    },
+    {
+        "id": 3,
+        "nombre": "Diego",
+        "apellido": "D\u00edaz",
+        "especialidad": "Cardiolog\u00eda"
+    },
+    {
+        "id": 4,
+        "nombre": "Ram\u00f3n",
+        "apellido": "Ram\u00edrez",
+        "especialidad": "Obstretr\u00eda"
+    }
+]

@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pablo",
+        "apellido": "Perez",
+        "dni": "27529355",
+        "fechaNacimiento": "24/08/1979",
+        "nacionalidad": "Argentina",
+        "historias": [
+            {
+                "id": 1,
+                "medico": 2,
+                "fecha": "25/06/2022",
+                "enfermedad": "historia 1",
+                "descripcion": "detalle historia 1"
+            },
+            {
+                "id": 2,
+                "medico": 4,
+                "fecha": "28/06/2022",
+                "enfermedad": "historia 2 ",
+                "descripcion": "detalle historia 2 de pablo"
+            },
+            {
+                "id": 3,
+                "medico": 4,
+                "fecha": "29/06/2022",
+                "enfermedad": "Laringitis",
+                "descripcion": "Tomar medicacion"
+            },
+            {
+                "id": 4,
+                "medico": 2,
+                "fecha": "29/06/2022",
+                "enfermedad": "le duele algo",
+                "descripcion": "no se que escribir\n"
+            },
+            {
+                "id": 5,
+                "medico": 3,
+                "fecha": "30/06/2022",
+                "enfermedad": "Alguna",
+                "descripcion": "Dormir 12 horas por d\u00eda\n"
+            },
+            {
+                "id": 6,
+                "medico": "nuevo medico",
+                "fecha": "22/07/2025",
+                "enfermedad": "scdzsczsd",
+                "descripcion": "xczxczxc\n"
+            },
+            {
+                "id": 7,
+                "medico": 1,
+                "fecha": "22/07/2025",
+                "enfermedad": "hola",
+                "descripcion": "holaaaa\n"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Laura",
+        "apellido": "Roda",
+        "dni": "29322884",
+        "fechaNacimiento": "30/12/1981",
+        "nacionalidad": "Argentina",
+        "historias": [
+            {
+                "id": 1,
+                "medico": 2,
+                "fecha": "28/06/2022",
+                "enfermedad": "wrwerf",
+                "descripcion": "efwefwe\n"
+            },
+            {
+                "id": 2,
+                "medico": 4,
+                "fecha": "28/06/2022",
+                "enfermedad": "erterterte",
+                "descripcion": "erterte\n"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Manuel",
+        "apellido": "Barreto",
+        "dni": "25184785",
+        "fechaNacimiento": "12/02/1992",
+        "nacionalidad": "Argentina",
+        "historias": [
+            {
+                "id": 1,
+                "medico": 3,
+                "fecha": "29/06/2022",
+                "enfermedad": "historia manuel",
+                "descripcion": "detalle\n"
+            }
+        ]
+    }
+]
