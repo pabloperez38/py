@@ -98,5 +98,23 @@
                 "descripcion": "detalle\n"
             }
         ]
+    },
+    {
+        "id": 4,
+        "nombre": "3432423",
+        "apellido": "234234",
+        "dni": "51515151515",
+        "fechaNacimiento": "51515151515151",
+        "nacionalidad": "4234234",
+        "historias": []
+    },
+    {
+        "id": 5,
+        "nombre": "3432423",
+        "apellido": "234234",
+        "dni": "51515151515",
+        "fechaNacimiento": "12/10/2022",
+        "nacionalidad": "4234234",
+        "historias": []
     }
 ]

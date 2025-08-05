@@ -1,0 +1,314 @@
+{% extends "base.html" %} {% block title %}Contacto - Mi Sitio Web{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Contáctanos</h1>
+                <p class="lead mb-4">
+                    ¿Tienes un proyecto en mente? Estamos aquí para ayudarte a
+                    hacerlo realidad. Envíanos un mensaje y te responderemos lo
+                    antes posible.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-envelope fa-10x text-light opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Información de Contacto y Formulario -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Información de Contacto -->
+            <div class="col-lg-4 mb-5">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Información de Contacto</h3>
+
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i
+                                    class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Dirección</h5>
+                                <p class="text-muted mb-0">
+                                    Calle Principal 123<br />Ciudad, Estado
+                                    12345<br />México
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-phone fa-2x text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Teléfono</h5>
+                                <p class="text-muted mb-0">
+                                    +52 (55) 1234-5678<br />+52 (55) 9876-5432
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i
+                                    class="fas fa-envelope fa-2x text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Email</h5>
+                                <p class="text-muted mb-0">
+                                    info@misitioweb.com<br />soporte@misitioweb.com
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clock fa-2x text-primary"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5>Horarios</h5>
+                                <p class="text-muted mb-0">
+                                    Lunes - Viernes: 9:00 AM - 6:00 PM<br />Sábado:
+                                    9:00 AM - 2:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Envíanos un Mensaje</h3>
+
+                        <form method="POST">
+                            {{ form.hidden_tag() }}
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label
+                                        for="{{ form.nombre.id }}"
+                                        class="form-label"
+                                        >{{ form.nombre.label }}</label
+                                    >
+                                    {{ form.nombre(class="form-control" + ("
+                                    is-invalid" if form.nombre.errors else ""))
+                                    }} {% if form.nombre.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.nombre.errors %} {{
+                                        error }} {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label
+                                        for="{{ form.email.id }}"
+                                        class="form-label"
+                                        >{{ form.email.label }}</label
+                                    >
+                                    {{ form.email(class="form-control" + ("
+                                    is-invalid" if form.email.errors else ""))
+                                    }} {% if form.email.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %} {{
+                                        error }} {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label
+                                    for="{{ form.mensaje.id }}"
+                                    class="form-label"
+                                    >{{ form.mensaje.label }}</label
+                                >
+                                {{ form.mensaje(class="form-control", rows="6")
+                                }} {% if form.mensaje.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.mensaje.errors %} {{
+                                    error }} {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="newsletter" />
+                                    <label
+                                        class="form-check-label"
+                                        for="newsletter">
+                                        Suscribirme al newsletter para recibir
+                                        noticias y actualizaciones
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>{{
+                                form.submit.label }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mapa -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold">Encuéntranos</h2>
+                <p class="lead text-muted">
+                    Visítanos en nuestras oficinas o contáctanos para una
+                    reunión virtual.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="ratio ratio-21x9">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5!2d-99.1332!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzU3LjQiTiA5OcKwMDgnMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Preguntas Frecuentes -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold">Preguntas Frecuentes</h2>
+                <p class="lead text-muted">
+                    Resolvemos las dudas más comunes sobre nuestros servicios.
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse1">
+                                ¿Cuánto tiempo toma desarrollar un sitio web?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapse1"
+                            class="accordion-collapse collapse show"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                El tiempo de desarrollo varía según la
+                                complejidad del proyecto. Un sitio web básico
+                                puede tomar 2-4 semanas, mientras que proyectos
+                                más complejos pueden requerir 6-12 semanas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse2">
+                                ¿Ofrecen mantenimiento después del lanzamiento?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapse2"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sí, ofrecemos planes de mantenimiento que
+                                incluyen actualizaciones de seguridad,
+                                respaldos, monitoreo y soporte técnico continuo.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse3">
+                                ¿Los sitios web son responsivos?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapse3"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Absolutamente. Todos nuestros sitios web están
+                                diseñados para funcionar perfectamente en
+                                dispositivos móviles, tablets y computadoras de
+                                escritorio.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse4">
+                                ¿Pueden integrar mi sitio web con redes
+                                sociales?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapse4"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sí, podemos integrar tu sitio web con todas las
+                                principales redes sociales, incluyendo Facebook,
+                                Instagram, Twitter, LinkedIn y más.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

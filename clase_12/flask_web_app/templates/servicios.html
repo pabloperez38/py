@@ -1,0 +1,296 @@
+{% extends "base.html" %} {% block title %}Servicios - Mi Sitio Web{% endblock
+%} {% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Nuestros Servicios</h1>
+                <p class="lead mb-4">
+                    Ofrecemos soluciones web completas y personalizadas para
+                    hacer crecer tu negocio en el mundo digital.
+                </p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-cogs fa-10x text-light opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold">¿Qué ofrecemos?</h2>
+                <p class="lead text-muted">
+                    Servicios profesionales de desarrollo web adaptados a tus
+                    necesidades específicas.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for servicio in servicios %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i
+                            class="{{ servicio.icono }} fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">{{ servicio.titulo }}</h5>
+                        <p class="card-text">{{ servicio.descripcion }}</p>
+                        <a
+                            href="{{ url_for('contacto') }}"
+                            class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-right me-2"></i>Saber más
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Proceso de Trabajo -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold">Nuestro Proceso</h2>
+                <p class="lead text-muted">
+                    Metodología probada para entregar proyectos exitosos.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div
+                        class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                        style="width: 80px; height: 80px">
+                        <i class="fas fa-lightbulb fa-2x"></i>
+                    </div>
+                    <h5>1. Consultoría</h5>
+                    <p class="text-muted">
+                        Analizamos tus necesidades y objetivos para crear la
+                        mejor estrategia digital.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div
+                        class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                        style="width: 80px; height: 80px">
+                        <i class="fas fa-pencil-ruler fa-2x"></i>
+                    </div>
+                    <h5>2. Diseño</h5>
+                    <p class="text-muted">
+                        Creamos diseños únicos y funcionales que reflejan tu
+                        marca.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div
+                        class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                        style="width: 80px; height: 80px">
+                        <i class="fas fa-code fa-2x"></i>
+                    </div>
+                    <h5>3. Desarrollo</h5>
+                    <p class="text-muted">
+                        Implementamos tu proyecto con las mejores tecnologías y
+                        prácticas.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div
+                        class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                        style="width: 80px; height: 80px">
+                        <i class="fas fa-rocket fa-2x"></i>
+                    </div>
+                    <h5>4. Lanzamiento</h5>
+                    <p class="text-muted">
+                        Desplegamos tu proyecto y te brindamos soporte continuo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Precios -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-6 fw-bold">Planes y Precios</h2>
+                <p class="lead text-muted">
+                    Elige el plan que mejor se adapte a tus necesidades y
+                    presupuesto.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Básico</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary"
+                                >$999</span
+                            >
+                            <span class="text-muted">/proyecto</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Sitio web responsivo
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Hasta 5 páginas
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Formulario de contacto
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >SEO básico
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Hosting por 1 año
+                            </li>
+                        </ul>
+                        <a
+                            href="{{ url_for('contacto') }}"
+                            class="btn btn-outline-primary w-100"
+                            >Comenzar</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="card border-0 shadow border-primary"
+                    style="border-width: 3px !important">
+                    <div class="card-body text-center p-4">
+                        <span class="badge bg-primary mb-2">Más Popular</span>
+                        <h5 class="card-title">Profesional</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary"
+                                >$1,999</span
+                            >
+                            <span class="text-muted">/proyecto</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Todo del plan Básico
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Hasta 10 páginas
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Panel de administración
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Blog integrado
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >SEO avanzado
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Soporte por 6 meses
+                            </li>
+                        </ul>
+                        <a
+                            href="{{ url_for('contacto') }}"
+                            class="btn btn-primary w-100"
+                            >Comenzar</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Empresarial</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary"
+                                >$3,999</span
+                            >
+                            <span class="text-muted">/proyecto</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Todo del plan Profesional
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Páginas ilimitadas
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >E-commerce completo
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Integración con APIs
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Optimización de rendimiento
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i
+                                >Soporte por 1 año
+                            </li>
+                        </ul>
+                        <a
+                            href="{{ url_for('contacto') }}"
+                            class="btn btn-outline-primary w-100"
+                            >Comenzar</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-6 fw-bold mb-4">
+                    ¿Necesitas algo personalizado?
+                </h2>
+                <p class="lead mb-4">
+                    Cada proyecto es único. Contáctanos para discutir tus
+                    necesidades específicas y obtener una cotización
+                    personalizada.
+                </p>
+                <a
+                    href="{{ url_for('contacto') }}"
+                    class="btn btn-light btn-lg">
+                    <i class="fas fa-paper-plane me-2"></i>Solicitar Cotización
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
