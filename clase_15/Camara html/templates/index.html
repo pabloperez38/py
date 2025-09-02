@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detección de Movimiento Especial</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        img { border: 1px solid black; }
+        .slider-container { margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Detección de rostros y movimiento especial</h2>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    
+    <div class="slider-container">
+        <label for="sensibilidad">Sensibilidad de movimiento: </label>
+        <input type="range" id="sensibilidad" min="1000" max="20000" value="{{ sensibilidad }}" 
+               oninput="cambiarSensibilidad(this.value)">
+        <span id="valor">{{ sensibilidad }}</span>
+    </div>
+
+    <script>
+        function cambiarSensibilidad(valor) {
+            document.getElementById('valor').innerText = valor;
+            fetch("/set_sensibilidad", {
+                method: "POST",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: "valor=" + valor
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevo Producto - Gestión de Productos{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    <i class="bi bi-plus-circle"></i> Nuevo Producto
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">
+                            <i class="bi bi-tag"></i> Nombre del Producto <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required 
+                               placeholder="Ej: Laptop HP Pavilion">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">
+                            <i class="bi bi-card-text"></i> Descripción
+                        </label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" 
+                                  placeholder="Describe las características del producto..."></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="precio" class="form-label">
+                                    <i class="bi bi-currency-dollar"></i> Precio <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="precio" name="precio" 
+                                           step="0.01" min="0" required placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">
+                                    <i class="bi bi-boxes"></i> Stock <span class="text-danger">*</span>
+                                </label>
+                                <input type="number" class="form-control" id="stock" name="stock" 
+                                       min="0" required placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">
+                            <i class="bi bi-collection"></i> Categoría <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="categoria" name="categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Electrónicos">Electrónicos</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Libros">Libros</option>
+                            <option value="Juguetes">Juguetes</option>
+                            <option value="Alimentos">Alimentos</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary me-md-2">
+                            <i class="bi bi-arrow-left"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle"></i> Crear Producto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

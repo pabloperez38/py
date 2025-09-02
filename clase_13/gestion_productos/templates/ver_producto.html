@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}{{ producto['nombre'] }} - Gestión de Productos{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">
+                        <i class="bi bi-eye"></i> Detalles del Producto
+                    </h4>
+                    <div>
+                        <a href="{{ url_for('editar_producto', id=producto['id']) }}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="text-primary">{{ producto['nombre'] }}</h2>
+                        
+                        {% if producto['descripcion'] %}
+                        <div class="mb-4">
+                            <h5><i class="bi bi-card-text"></i> Descripción</h5>
+                            <p class="text-muted">{{ producto['descripcion'] }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card bg-light mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-currency-dollar"></i> Precio
+                                        </h5>
+                                        <h3 class="text-success fw-bold">${{ "%.2f"|format(producto['precio']) }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-light mb-3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-boxes"></i> Stock Disponible
+                                        </h5>
+                                        <h3 class="{% if producto['stock'] > 10 %}text-success{% elif producto['stock'] > 0 %}text-warning{% else %}text-danger{% endif %} fw-bold">
+                                            {{ producto['stock'] }} unidades
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5><i class="bi bi-collection"></i> Categoría</h5>
+                            <span class="badge bg-info fs-6">{{ producto['categoria'] }}</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5><i class="bi bi-calendar"></i> Información de Registro</h5>
+                            <p class="text-muted">
+                                <strong>Fecha de creación:</strong> {{ producto['fecha_creacion'] }}<br>
+                                <strong>ID del producto:</strong> #{{ producto['id'] }}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <h6 class="mb-0"><i class="bi bi-gear"></i> Acciones</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <a href="{{ url_for('editar_producto', id=producto['id']) }}" class="btn btn-warning">
+                                        <i class="bi bi-pencil"></i> Editar Producto
+                                    </a>
+                                    <button type="button" class="btn btn-danger" 
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                        <i class="bi bi-trash"></i> Eliminar Producto
+                                    </button>
+                                    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                                        <i class="bi bi-arrow-left"></i> Volver al Listado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Estado del stock -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h6 class="mb-0"><i class="bi bi-info-circle"></i> Estado del Stock</h6>
+                            </div>
+                            <div class="card-body">
+                                {% if producto['stock'] > 10 %}
+                                    <div class="alert alert-success">
+                                        <i class="bi bi-check-circle"></i> Stock suficiente
+                                    </div>
+                                {% elif producto['stock'] > 0 %}
+                                    <div class="alert alert-warning">
+                                        <i class="bi bi-exclamation-triangle"></i> Stock bajo
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-danger">
+                                        <i class="bi bi-x-circle"></i> Sin stock
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación de eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que quieres eliminar el producto <strong>"{{ producto['nombre'] }}"</strong>?</p>
+                <p class="text-danger"><small>Esta acción no se puede deshacer.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="{{ url_for('eliminar_producto', id=producto['id']) }}" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
